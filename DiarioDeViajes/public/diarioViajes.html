@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Diario de Viaje</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="../img/nav.jpeg" alt="Logo"style="max-width: 450px;">
+        </div>
+        <div class="nav-center">
+            <h2 style="font-style: italic;">Diario de Viaje</h2>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" onclick="showFullMap()">Ver Mapa Completo</a></li>
+                <li><a href="#contenedor-list-lugares">Lista de lugares</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div id="map"></div>
+        <div id="form-container">
+            <form id="travel-form">
+                <label class="tituloform">Ingresa tu ubicacion actual o manual: </label>
+                <!-- Campo para la ubicación actual -->
+                <label for="currentLocation">Ubicación Actual:</label>
+                <button type="button" onclick="getCurrentLocation()">Obtener Ubicación</button>
+                <input type="hidden" id="currentLocation" name="currentLocation">
+
+                <!-- Campos del formulario -->
+                <label for="location">Ubicación Manual:</label>
+                <input type="text" id="location" name="location" required>
+                <ul id="locationSuggestions" class="location-suggestions"></ul>
+
+                <label class="tituloform" for="experience">Ingresa tu experiencia de viaje:</label>
+                <!-- Botón y área para grabación de voz -->
+                <button type="button" id="startRecording">Iniciar grabación</button>
+                <textarea id="experience" name="experience" required></textarea>
+                
+                <label class="tituloform">Carga multimedia(fotos, videos, links):</label>
+                <div id="photo-options">
+                     <!-- Modificar el input para permitir múltiples archivos -->
+                    <input type="file" id="fileInput" accept="image/*,video/*" multiple>
+                    <label for="fileInput" class="custom-file-upload">Seleccionar archivos</label>
+                    <input type="url" id="photoUrl" name="photoUrl"
+                        placeholder="Agrega la URL o vínculo de una imagen web">
+                </div>
+
+                <button type="button" onclick="addEntry()">Agregar Entrada</button>
+            </form>
+        </div>
+    </main>
+
+    <section id="contenedor-list-lugares">
+        <div id="places-list">
+            <h2 id="titulo-lugare">Lugares Visitados</h2>
+            <div id="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar lugares...">
+            </div>
+        </div>
+        <ul id="places"></ul>
+    </section>
+    
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../js/script.js"></script>
+    <!-- Script para la grabación de voz -->
+    <script src="../js/vozatexto.js"> </script>
+</body>
+
+</html>

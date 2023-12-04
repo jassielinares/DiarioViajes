@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Inicio de sesión</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="" required="">
+                <label>Usuario</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="" required="">
+                <label>Contraseña</label>
+            </div>
+            <div class="botones">
+                <a href="diarioViajes.html">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Iniciar
+                </a>
+                <a href="javascript:void(0);" onclick="openPopup()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Crear usuario
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Ventana emergente -->
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">X</span>
+            <h2>Crear usuario</h2>
+            <form>
+                <div class="user-box">
+                    <label>Nombre de usuario</label>
+                    <input type="text" name="username" required="">
+                </div>
+                <div class="user-box">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" required="">
+                </div>
+                <div class="user-box">
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" required="">
+                </div>
+                <button type="submit">Crear Usuario</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      function openPopup() {
+          document.getElementById("overlay").style.display = "flex";
+      }
+  
+      function closePopup() {
+          document.getElementById("overlay").style.display = "none";
+      }
+  </script>
+  
+</body>
+</html>
